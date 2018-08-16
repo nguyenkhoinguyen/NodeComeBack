@@ -1,0 +1,94 @@
+- Module trong nodejs
+    + module và exports
+    + Gọi module = require('path')
+- Hàm trong javascript dùng như 1 đối tượng
+- Kế thừa trong javascript sử dụng prototype để mở rộng thuộc tính và cho phép kế thừa
+- Hàm khởi tạ0: 
+function Student(name){
+    this.Name = name;
+}
+
+Student.prototype.GetName = function(){
+    return this.Name;
+}
+
+- Call và apply
+
+function TestCall(name){
+    this.Name = name;
+}
+
+TestCall.prototype.GetName = function(p1,p2){
+    console.log(`Hello ${}`);
+}
+
+TestCall.GetName.Call({Name:"Khoi Nguyen","p1","p2"});
+TestCall.GetName.apply({Name:"Khoi Nguyen",["p1","p2"]});
+
+Call khác apply ở chỗ: truyền tham số vào hàm
+- Dùng util để kế thừa.
+var util = require('util');
+util.inherits(lớp con, lớp cha);
+
+
+- Khái niệm  Buffer & Stream
+    + Buffer là nơi chứa tạm thời các dữ liệu chuyển từ nơi này sang nơi khác, 
+    mang tính tạm thời như 1 vùng nhớ lưu trữ
+    + Stream là chuỗi dữ liệu có sẵn thông qua thời gian, dòng chảy dữ liệu
+    => Khi tạp 1 Stream thì 1 dòng Buffer sẽ dc chuyển qua, tốc độc của Stream sẽ phụ thuộc vào tốc độ mạng
+
+- Dữ liệu nhị phân: là dạng dữ liệu bit 0,1
+- 1 ký tự biểu diễn bằng 1 con số trong bộ bảng mã
+    + 1 ký tự ASCII sẽ dc lưu trữ bởi 1 byte = 8 bit
+- Xử lý Buffer: 
+var a = new Buffer("aaaaaa");
+var b = new ArrayBuffer(8); // cố định kích thước mảng lưu trữ Buffer là 8 bit ~ 2 giá trị
+
+- Hàm gọi lại CallBack:
+    + Truyền vào hàm 1 hàm khác
+- Làm việc vs File sử dụng module FS
+
+- Tạo Web API trả về JSON
+
+- Định tuyến ứng dụng Routing:
+    + 
+- Sử dụng thư viện express:
+
+- Sử dụng Middleware 
+
+- Sử dụng template engine 
+    + Sử dụng javascript trong ejs:  
+    <% if(a.age>18){%>
+        <h1><%= a.age %></h1>
+    <%}%>
+    + Sử dụng layout trong ejs : 
+        <%- include('user/show', {nguyen: "Dep trai"}); %>
+
+- Sử dụng get & post vào server nodejs :
+    + Get thì bình thường : req.params.id (Lấy id với đường dẫn : /:id)
+                            req.params.qstr (Lấy qstr với đường dẫn : /:id?qstr=kdjfkdfj)    
+    + Post thì cần sử dụng Middleware là body paser để phân tích dữ liệu trong body của request
+        var bodyParser = require('body-parser');
+        var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+        app.post('/login', urlencodedParser, function (req, res) {
+            if (!req.body) return res.sendStatus(400)
+            res.send('welcome, ' + req.body.nguoidung)
+        })
+    + Post json lên server nodejs: 
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+Lệnh git:
+
+git init   (tạo 1 repository cho local git)
+git status (trạng thái của git)
+git add    (chuyển trạng thái commit)
+git add "filename"  or git add .
+git commit

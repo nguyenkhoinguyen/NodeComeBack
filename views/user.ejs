@@ -1,0 +1,42 @@
+<html>
+<header>
+    <title>Trang User</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</header>
+
+<body>
+    hello
+    <%= a.name %>
+        <% if(a.age>18){%>
+            <h1>
+                <%= a.age %>
+            </h1>
+            <%}%>
+                <div>
+                    <%- include('user/show', {nguyen: "Dep trai"}); %>
+                </div>
+                <div>
+                    <%- include('nguyen', {nguyen: "Dep trai"}); %>
+                </div>
+                <div>
+                    <form action="login" method="post">
+                        <input type="text" name="nguoidung">
+                        <input type="password" name "matkhau">
+                        <input type="submit" value="Gui">
+                    </form>
+                </div>
+                <div>
+                    <form action="loginjson" method="post">
+                        <input type="text">
+                    </form>
+                </div>
+                <script>
+                    
+                    $(document).ready(function () {
+                        alert("Nguyen KHoi Nguyen Dep trai");
+                        
+                    })
+                </script>
+</body>
+
+</html>
